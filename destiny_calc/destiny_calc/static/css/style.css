@@ -1,0 +1,74 @@
+
+body{
+ background-color: black;
+    background-image: url("back_numbers.jpg");
+    background-repeat: no-repeat;
+    background-position:bottom;
+}
+
+.wrap{
+ margin-top: 5%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+    flex-direction: column;
+
+}
+
+.character{
+ justify-content: space-between;
+
+}
+
+.table{
+    height: 300px;
+    width: 300px;
+    text-align: center;
+
+}
+
+td{
+  border: 1px solid black;
+  color: gray;
+    font-size: 12px;
+    height: 50px;
+}
+
+tr{
+   background: #FDF2EC;
+}
+
+#hidden_cell{
+ border: 0px;
+ background:#FDF9EE;
+}
+
+
+
+.birthdate{
+     align-items: center;
+ justify-content: center;
+    flex-direction: row;
+}
+
+#date{
+    font-size:30px;
+    text-align: center;
+    background-color: #FDF9EE;
+    border: 0px;
+    border-radius: 2%;
+}
+
+.btn-calculate{
+    margin-left: 0%;
+}
+
+#calculate{
+    border-radius: 0%;
+    width: 100%;
+    border:1px solid black;
+    background-color: #FDF2EC;
+}
+.first_row{
+    width: 5px;
+}

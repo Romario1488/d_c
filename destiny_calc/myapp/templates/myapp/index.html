@@ -1,0 +1,98 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- Подключение библиотеки jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <!-- Подключение jQuery плагина Masked Input -->
+    <script src="{% static 'js/jquery.maskedinput.min.js' %}"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <title>Document</title>
+</head>
+<body>
+<div class="wrap">
+
+    <div class="birthdate">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 mb-5">
+      <div class="content">
+        <div class="form-group">
+            <form method="POST">{% csrf_token %}
+          <div class="input-group date" id="datepicker">
+            {% if birth_date %}
+            <input class="form-control" name="birthdate" id="date" placeholder={{ birth_date }}><span class="input-group-append input-group-addon"></span>
+                {% else %}
+                <input class="form-control" name="birthdate" id="date" placeholder="00.00.0000"/><span class="input-group-append input-group-addon"></span>
+            {% endif %}
+          </div>
+            <div class="btn-calculate">
+
+
+            <input type="submit" class="btn mt-2" value="Рассчитать" id="calculate" name="calc"></input>
+
+                </div>
+                </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        <script>
+                $(function() {
+                  //задание заполнителя с помощью параметра placeholder
+                  $("#date").mask("99.99.9999", {placeholder: "00.00.0000" });
+                  //задание заполнителя с помощью параметра placeholder
+                });
+</script>
+
+
+
+</div>
+
+<div class="character">
+<table class="table">
+
+  <tbody>
+    <tr  class="first-column">
+     <td style="width: 30%;" colspan="2"  class="first_row"><span>Доп. числа <br><b><h4 id="content_block">{{ additional_numbers }}</h4></b></span></td>
+      <td style="width: 20%;" class="third_row">Число судьбы<br><b><h4 id="content_block">{{ destiny_number }}</h4></b></td>
+      <td style="width: 5%;" class="fourth_row"><span>Темперамент<br><b><h4 style="margin-top: 15%" id="content_block"> {{ temperament }}</h4></b></span></td>
+    </tr>
+    <tr>
+      <td><span>Характер <br><b><h4 id="content_block">{{ character }}</h4></b></span></td>
+      <td><span>Здоровье<br><b><h4 id="content_block">{{ health }}</h4></b></span></td>
+      <td><span>Удача<br><b><h4 id="content_block">{{ luck }}</h4></b></span></td>
+        <td><span>Цель<br><b><h4 id="content_block">{{ ustremlennost }}</h4></b></span></td>
+    </tr>
+    <tr>
+      <td><span>Энергия<br><b><h4 id="content_block">{{ energy }}</h4></b></span></td>
+      <td><span>Лоигка<br><b><h4 id="content_block">{{ logic }}</h4></b></span></td>
+      <td><span>Долг<br><b><h4 id="content_block">{{ debt }}</h4></b></span></td>
+        <td><span>Семья<br><b><h4 id="content_block">{{ family }}</h4></b></span></td>
+    </tr>
+      <tr>
+      <td><span>Интерес<br><b><h4 id="content_block">{{ interest }}</h4></b></span></td>
+      <td><span>Труд<br><b><h4 id="content_block">{{ work }}</h4></b></span></td>
+      <td><span>Память<br><b><h4 id="content_block">{{ memory }}</h4></b></span></td>
+        <td><span>Привычки<br><b><h4 id="content_block">{{ habbits }}</h4></b></span></td>
+    </tr>
+        <tr>
+            <td id="hidden_cell"></td>
+      <td>Быт<br><b><h4 id="content_block">{{ bit }}</h4></b></td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+    </div>
+<div class="footer" style="height: 170px"></div>
+</body>
+</html>
